@@ -1,0 +1,85 @@
+﻿@model WellsCrossingTherapy.Models.HomeModel
+@{
+    ViewBag.Title = "Wells Crossing Therapy";
+    Layout = "../Shared/_Layout.cshtml";
+}
+@*<img src="../../Content/title1.gif" alt="" style="position: absolute; top: 50px;
+    right: 20px;" />*@
+@*<img src="../../Content/title2.gif" alt="" style="position: absolute; bottom: 50px;
+    left: 20px; opacity: 0.8;" />*@
+<label class="title-bar" style="top: 50px; right: 40px;font-size: 90px;">Wells Crossing Therapy</label>
+<div class="title-bar" style="bottom: 50px; background-color: black; opacity: 0.3;
+    height: 100px; width: 100%;">
+</div>
+<label class="title-bar" style="bottom: 70px; left: 40px;font-size: 50px;">Astrology, Energetic Well-Being & Shiatsu Therapy</label>
+<a class="title-bar" href="#" onclick="ShowAboutDialog();return false;" style="bottom: 80px; right: 180px;font-size: 30px;">About</a> 
+<a class="title-bar" href="#" onclick="ShowContactDialog();return false;" style="bottom: 80px; right: 50px;font-size: 30px;">Contact</a>
+<div id="about-dialog">
+    <p>
+        Hi my name is Blah and I like stuff.</p>
+    <p>
+        One day I want to make a boat with dirt, I'll call it a dirt boat.</p>
+    <br />
+    <p>
+        Thank you.</p>
+    <br />
+    <input type="button" id="about-me-close" value="Great" onclick="HideAboutDialog();return false;" />
+</div>
+<div id="contact-dialog">
+    <br />
+    <table>
+        <tr>
+            <td>Email *</td>
+            <td><input type="text" id="contact-me-email" value="" /></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="contact-me-name" value="" /></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><input type="text" id="contact-me-phone" value="" /></td>
+        </tr>
+    </table>
+    <br />
+    <input type="button" id="contact-me-send" value="Send" onclick="HideContactDialog();return false;" />
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function (e) {
+        $("#about-dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            height: 280,
+            modal: true,
+            resizable: false,
+            title: 'About Me',
+            open: function (event, ui) { $(".ui-dialog-titlebar-close", ui.dialog).hide(); }
+        });
+        $("#contact-dialog").dialog({
+            autoOpen: false,
+            width: 400,
+            height: 250,
+            modal: true,
+            resizable: false,
+            title: 'Contact Me',
+            open: function (event, ui) { $(".ui-dialog-titlebar-close", ui.dialog).hide(); }
+        });
+    });
+
+    function ShowAboutDialog() {
+        $("#about-dialog").dialog('open');
+    }
+    function HideAboutDialog() {
+        $("#about-dialog").dialog('close');
+    }
+
+    function ShowContactDialog() {
+        $("#contact-dialog").dialog('open');
+    }
+    function HideContactDialog() {
+        $("#contact-dialog").dialog('close');
+    }
+    
+    
+</script>
